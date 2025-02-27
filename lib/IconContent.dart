@@ -25,7 +25,7 @@ class IconContent extends StatelessWidget {
                 label!,
                 style: TextStyle(
                   fontSize: 18.0,
-                  color: Colors.white,
+                  color: Color(0xFF8D8E98),
                 ),
               ),
       ],
