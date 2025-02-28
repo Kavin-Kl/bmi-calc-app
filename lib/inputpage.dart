@@ -5,6 +5,7 @@ import 'ReuseableCard.dart';
 import 'constants.dart';
 import 'RoundIconButton.dart';
 import 'results_page.dart';
+import 'backendcalc.dart';
 
 enum Gender { male, female, other }
 
@@ -247,8 +248,15 @@ class _InputPageState extends State<InputPage> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ResultsPage()));
+              CalcBrain calc = CalcBrain(height: height, weight: weight);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ResultsPage(
+                            bmi: calc.calculateBMI(),
+                            result: calc.StringGetResult(),
+                            interpretation: calc.StringGetInterpretation(),
+                          )));
             },
             child: Container(
               alignment: Alignment.center,
